@@ -11,6 +11,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -47,7 +48,25 @@ public class GestionnaireCompte {
     }
 
     public long nbComptes() {
-        TypedQuery<Long> query = em.createNamedQuery("CompteBancaire.countAll",Long.class);
+        TypedQuery<Long> query = em.createNamedQuery("CompteBancaire.countAll", Long.class);
         return query.getSingleResult();
+    }
+
+    public CompteBancaire findById(Long id) {
+        return em.find(CompteBancaire.class, id);
+    }
+
+    @Transactional
+    public void transferer(CompteBancaire source, CompteBancaire destination,
+            int montant) {
+        source.retirer(montant);
+        destination.deposer(montant);
+        update(source);
+        update(destination);
+    }
+
+    @Transactional
+    public CompteBancaire update(CompteBancaire compteBancaire) {
+        return em.merge(compteBancaire);
     }
 }
