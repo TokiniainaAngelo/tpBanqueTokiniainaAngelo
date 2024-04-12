@@ -62,7 +62,7 @@ public class Transfert implements Serializable{
         CompteBancaire source = gestionnaireCompte.findById(idSource);       
         CompteBancaire destination = gestionnaireCompte.findById(idDestination);
         gestionnaireCompte.transferer(source,destination,montant);
-        return "listeComptes";
+        return "listeComptes?faces-redirect=true";
     }
     
 }
