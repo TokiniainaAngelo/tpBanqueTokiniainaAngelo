@@ -6,6 +6,7 @@ package com.mbds.tokiniaina.tpbanquetokiniainaangelo.jsf;
 
 import com.mbds.tokiniaina.tpbanquetokiniainaangelo.entity.CompteBancaire;
 import com.mbds.tokiniaina.tpbanquetokiniainaangelo.service.GestionnaireCompte;
+import com.mbds.tokiniaina.tpbanquetokiniainaangelo.util.Util;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.Dependent;
 import jakarta.faces.view.ViewScoped;
@@ -34,5 +35,11 @@ public class ListeComptes implements Serializable {
             allComptes = gestionnaireCompte.getAllComptes();
         }
         return allComptes;
+    }
+
+    public String supprimerCompte(CompteBancaire compteBancaire) {
+        gestionnaireCompte.supprimerCompte(compteBancaire);
+        Util.addFlashInfoMessage("Compte de " + compteBancaire.getNom() + " supprimé");
+        return "listeComptes?faces-redirect=true";
     }
 }
