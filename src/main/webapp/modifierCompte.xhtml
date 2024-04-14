@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      >
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/template_default.xhtml">
+
+            <ui:define name="metadata">
+                <f:metadata>  
+                    <f:viewParam name="idCompte" value="#{modifier.idCompte}"  
+                                 required="true"/>  
+                    <f:viewAction action="#{modifier.loadCompte}"/>  
+                </f:metadata>
+            </ui:define>
+
+            <ui:define name="top">
+                Modifier le compte
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <h:panelGrid columns="3">
+                        Nom : 
+                        <h:inputText id="nom" size="50" value="#{modifier.compte.nom}"
+                                     required="true"
+                                     converterMessage="Nom invalide"/>
+                        <h:message for="nom"/>
+                    </h:panelGrid>
+                    <h:panelGrid columns="3">
+                       Solde : 
+                        <h:inputText id="solde" size="10" value="#{modifier.compte.solde}"
+                                     required="true"
+                                     converterMessage="Solde est un nombre entier"/>
+                        <h:message for="solde"/>
+                    </h:panelGrid>
+                    <h:commandButton id="modifier" value="Modifier" action="#{modifier.modifier}"/>
+                </h:form>
+                <h:messages/>
+            </ui:define>
+
+        </ui:composition>
+    </body>
+</html>
