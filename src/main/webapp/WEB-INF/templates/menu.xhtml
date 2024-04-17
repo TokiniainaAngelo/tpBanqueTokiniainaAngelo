@@ -2,12 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="jakarta.faces.facelets">
-    <ul>
-        <li><h:link outcome="/index" value="Accueil"/></li> 
-        <li><h:link outcome="/listeComptes" value="Liste des comptes"/></li> 
-        <li><h:link outcome="/ajoutCompte" value="Ajouter un compte"/></li>  
-        <li><h:link outcome="/transfert" value="Effectuer un transfert"/></li>
-    </ul>
-   
+
+    <h:form>
+        <p:menu>
+            <p:menuitem outcome="/index" value="Accueil"/>        
+            <p:menuitem outcome="/listeComptes" value="Liste des comptes"/>
+            <p:menuitem outcome="/ajoutCompte" value="Ajouter un compte"/>
+            <p:menuitem outcome="/transfert" value="Effectuer un transfert"/>
+        </p:menu>
+    </h:form>
+
 </ui:composition>

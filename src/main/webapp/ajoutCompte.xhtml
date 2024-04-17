@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"  xmlns:f="jakarta.faces.core" xmlns:p="http://primefaces.org/ui"
+      xmlns:h="jakarta.faces.html"  
+      xmlns:f="jakarta.faces.core" 
+      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <body>
@@ -15,20 +17,18 @@
             <ui:define name="content">
                 <h:form id="form">
                     <h:panelGrid columns="3">
-                        Nom : 
-                        <h:inputText id="nom" size="3" value="#{ajout.nom}"
+                        <p:outputLabel for="nom" value="Nom"/>
+                        <p:inputText id="nom" size="50" value="#{ajout.nom}"
                                      required="true"
                                      converterMessage="Nom est invalide"/>
-                        <h:message for="nom"/>
-                    </h:panelGrid>
-                    <h:panelGrid columns="3">
-                        Solde : 
-                        <h:inputText id="solde" size="3" value="#{ajout.solde}"
+                        <p:message for="nom"/>
+                        <p:outputLabel for="solde" value="Solde"/> 
+                        <p:inputText id="solde" size="50" value="#{ajout.solde}"
                                      required="true"
                                      converterMessage="Solde invalide"/>
-                        <h:message for="solde"/>
+                        <p:message for="solde"/>
                     </h:panelGrid>
-                    <h:commandButton id="ajout" value="Ajouter" action="#{ajout.ajouterCompte}"/>
+                    <p:commandButton id="ajout" value="Ajouter" action="#{ajout.ajouterCompte}"/>
                 </h:form>
             </ui:define>
 

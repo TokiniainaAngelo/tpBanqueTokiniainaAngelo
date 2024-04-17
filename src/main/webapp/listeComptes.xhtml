@@ -30,27 +30,27 @@
                                              style="width:150px"/>
                             </p:outputPanel>
                         </f:facet>
-                        <p:column width="10">
+                        <p:column width="auto">
                             <f:facet name="header">
                                 <h:outputText value="id"/>
                             </f:facet>
                             <h:link outcome="mouvement?id=#{item.id}" 
                                     value="#{item.id}"/>
                         </p:column>
-                        <p:column width="300" sortBy="#{item.nom}" filterBy="#{item.nom}">
+                        <p:column width="auto" sortBy="#{item.nom}" filterBy="#{item.nom}">
                             <f:facet name="header">
                                 <h:outputText value="Nom"/>
                             </f:facet>
                             <h:outputText value="#{item.nom}"/>
                         </p:column>
 
-                        <p:column width="100" sortBy="#{item.solde}">
+                        <p:column width="auto" sortBy="#{item.solde}">
                             <f:facet name="header">
                                 <h:outputText value="Solde"/>
                             </f:facet>
                             <h:outputText value="#{item.solde}"/>
                         </p:column>
-                        <p:column width="10">
+                        <p:column width="auto">
                             <f:facet name="header">
                                 <h:outputText value="Opérations"/>
                             </f:facet>
@@ -58,12 +58,14 @@
                                            title="Supprimer le compte de #{item.nom}" >
                                 <h:graphicImage name="images/del.png"/>
                             </h:commandLink>
-                             <h:link outcome="modifierCompte?idCompte=#{item.id}" 
+                        </p:column>
+                        <p:column width="auto">
+                            <h:link outcome="modifierCompte?idCompte=#{item.id}" 
                                     value="Modifier"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>
-                <h:messages/>
+                <p:messages/>
             </ui:define>
 
         </ui:composition>
