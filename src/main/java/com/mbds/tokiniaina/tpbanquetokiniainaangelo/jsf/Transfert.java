@@ -69,6 +69,12 @@ public class Transfert implements Serializable {
             // dans la page JSF qui lance le transfert.
             Util.messageErreur("Aucun compte avec cet id !", "Aucun compte avec cet id !", "form:source");
             erreur = true;
+        } else if (destination == null) {
+            // Message d'erreur associé au composant source ; form:source est l'id client
+            // si l'id du formulaire est "form" et l'id du champ de saisie de l'id de la source est "source"
+            // dans la page JSF qui lance le transfert.
+            Util.messageErreur("Aucun compte avec cet id !", "Aucun compte avec cet id !", "form:destination");
+            erreur = true;
         } else {
             if (source.getSolde() < montant) { // à compléter pour le cas où le solde du compte source est insuffisant...
                 Util.messageErreur("Solde du compte source insuffisante pour le transfert!", "Solde du compte source insuffisante pour le transfert!", "form:source");
