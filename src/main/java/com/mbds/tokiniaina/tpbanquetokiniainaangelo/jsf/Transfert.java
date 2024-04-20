@@ -8,10 +8,8 @@ import com.mbds.tokiniaina.tpbanquetokiniainaangelo.entity.CompteBancaire;
 import com.mbds.tokiniaina.tpbanquetokiniainaangelo.service.GestionnaireCompte;
 import com.mbds.tokiniaina.tpbanquetokiniainaangelo.util.Util;
 import jakarta.inject.Named;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import java.io.Serializable;
 
 /**
